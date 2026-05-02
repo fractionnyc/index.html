@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fraction Home Solutions | We Buy Houses Fast For Cash</title>
+  <meta name="description" content="Sell your house fast for cash. No repairs, no fees, close in 7–14 days. Get your free cash offer today from Fraction Home Solutions." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            black: '#0B0B0B',
+            charcoal: '#1A1A1A',
+            gold: '#C8A75D',
+            'gold-light': '#DFC07A',
+            'gold-dark': '#A8873D',
+          },
+          fontFamily: {
+            bebas: ['Bebas Neue', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background-color: #0B0B0B; color: #fff; font-family: 'Inter', sans-serif; }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* Gold gradient text */
+    .gold-text {
+      background: linear-gradient(135deg, #C8A75D 0%, #F0D080 50%, #C8A75D 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Diagonal gold accent line */
+    .accent-line::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #C8A75D, #F0D080);
+      margin-top: 14px;
+    }
+
+    /* Animated rotating gradient border for form — premium */
+    .form-glow {
+      position: relative;
+      border-radius: 8px;
+      box-shadow:
+        0 0 60px rgba(200, 167, 93, 0.12),
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .form-glow::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 8px;
+      padding: 1px;
+      background: conic-gradient(
+        from var(--angle, 0deg),
+        rgba(200, 167, 93, 0.6),
+        rgba(240, 208, 128, 0.9),
+        rgba(200, 167, 93, 0.2),
+        rgba(200, 167, 93, 0.6)
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: rotate-border 8s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @property --angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @keyframes rotate-border {
+      to { --angle: 360deg; }
+    }
+    /* Fallback for browsers that don't support @property */
+    @supports not (background: conic-gradient(from 0deg, red, blue)) {
+      .form-glow::before { display: none; }
+      .form-glow { border: 1px solid rgba(200, 167, 93, 0.4); }
+    }
+    .form-glow > * { position: relative; z-index: 2; }
+    .form-corner {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: #C8A75D;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .form-corner.tl { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; border-top-left-radius: 8px; }
+    .form-corner.tr { top: -1px; right: -1px; border-top: 2px solid; border-right: 2px solid; border-top-right-radius: 8px; }
+    .form-corner.bl { bottom: -1px; left: -1px; border-bottom: 2px solid; border-left: 2px solid; border-bottom-left-radius: 8px; }
+    .form-corner.br { bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; border-bottom-right-radius: 8px; }
+
+    /* Input styles */
+    .form-input {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(200, 167, 93, 0.2);
+      color: #fff;
+      padding: 16px 18px;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      outline: none;
+      border-radius: 5px;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-input:focus {
+      border-color: #DFC07A;
+      background: rgba(200, 167, 93, 0.05);
+      box-shadow: 0 0 0 3px rgba(200, 167, 93, 0.15), 0 4px 20px rgba(200, 167, 93, 0.1);
+    }
+    .form-input.error { border-color: #ff4444; box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.1); }
+
+    /* CTA Button — DOMINANT */
+    .cta-btn {
+      background: linear-gradient(135deg, #C8A75D 0%, #F0D080 50%, #C8A75D 100%);
+      background-size: 200% 200%;
+      color: #0B0B0B;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 2.5px;
+      padding: 22px 40px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      font-weight: 400;
+      box-shadow:
+        0 8px 24px rgba(200, 167, 93, 0.25),
+        0 0 0 1px rgba(240, 208, 128, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      animation: gradient-shift 4s ease infinite;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    .cta-btn:hover::before { transform: translateX(100%); }
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow:
+        0 16px 48px rgba(200, 167, 93, 0.55),
+        0 0 0 1px rgba(240, 208, 128, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+    .cta-btn:active { transform: translateY(-1px) scale(1); }
+    .cta-btn .cta-sub {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      opacity: 0.75;
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Nav CTA */
+    .nav-cta {
+      background: linear-gradient(135deg, #C8A75D, #DFC07A);
+      color: #0B0B0B;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 15px;
+      letter-spacing: 1.5px;
+      padding: 10px 22px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(200, 167, 93, 0.4);
+    }
+
+    /* Trust bar items */
+    .trust-item { border-right: 1px solid rgba(200, 167, 93, 0.15); }
+    .trust-item:last-child { border-right: none; }
+
+    /* Situation cards */
+    .situation-card {
+      background: #1A1A1A;
+      border: 1px solid rgba(200, 167, 93, 0.12);
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .situation-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #C8A75D, #F0D080);
+      transform: scaleX(0);
+      transition: transform 0.35s ease;
+    }
+    .situation-card:hover {
+      border-color: rgba(200, 167, 93, 0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(200, 167, 93, 0.08);
+    }
+    .situation-card:hover::before { transform: scaleX(1); }
+
+    /* Step cards */
+    .step-card {
+      background: #1A1A1A;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+    }
+    .step-card:hover { border-color: rgba(200, 167, 93, 0.3); }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* Hero entrance animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .hero-tag { animation: fadeUp 0.6s ease forwards 0.1s; opacity: 0; }
+    .hero-headline { animation: fadeUp 0.7s ease forwards 0.25s; opacity: 0; }
+    .hero-sub { animation: fadeUp 0.7s ease forwards 0.4s; opacity: 0; }
+    .hero-stats { animation: fadeUp 0.6s ease forwards 0.55s; opacity: 0; }
+    .hero-form { animation: fadeUp 0.8s ease forwards 0.5s; opacity: 0; }
+
+    /* Diagonal section divider */
+    .diagonal-top {
+      clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+      margin-top: -30px;
+    }
+
+    /* Sticky nav */
+    #sticky-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(200, 167, 93, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    /* Progress indicator */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #C8A75D, #F0D080);
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    /* Benefit checkmarks */
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .benefit-item:last-child { border-bottom: none; }
+
+    /* Success state */
+    #form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    /* Error message */
+    .error-msg {
+      color: #ff6b6b;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+    .error-msg.show { display: block; }
+
+    /* Mobile menu */
+    #mobile-menu {
+      display: none;
+      background: #1A1A1A;
+      border-top: 1px solid rgba(200, 167, 93, 0.15);
+    }
+    #mobile-menu.open { display: block; }
+
+    /* Pulse ring around CTA — premium attention grabber */
+    @keyframes pulse-gold {
+      0% { box-shadow: 0 8px 24px rgba(200, 167, 93, 0.25), 0 0 0 0 rgba(200, 167, 93, 0.5), 0 0 0 1px rgba(240, 208, 128, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+      70% { box-shadow: 0 8px 24px rgba(200, 167, 93, 0.25), 0 0 0 18px rgba(200, 167, 93, 0), 0 0 0 1px rgba(240, 208, 128, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+      100% { box-shadow: 0 8px 24px rgba(200, 167, 93, 0.25), 0 0 0 0 rgba(200, 167, 93, 0), 0 0 0 1px rgba(240, 208, 128, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+    }
+    .pulse { animation: gradient-shift 4s ease infinite, pulse-gold 2.4s infinite; }
+
+    /* Scarcity / urgency top bar */
+    .urgency-bar {
+      background: linear-gradient(90deg, rgba(200, 167, 93, 0.15) 0%, rgba(200, 167, 93, 0.08) 50%, rgba(200, 167, 93, 0.15) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 6s linear infinite;
+      border-bottom: 1px solid rgba(200, 167, 93, 0.25);
+      color: #DFC07A;
+      font-size: 12.5px;
+      letter-spacing: 0.5px;
+      padding: 9px 16px;
+      text-align: center;
+      position: relative;
+      z-index: 60;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .urgency-bar strong { color: #F0D080; font-weight: 700; }
+    .urgency-bar .live-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      margin-right: 6px;
+      animation: blink 1.6s infinite;
+      vertical-align: middle;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    /* Sticky mobile CTA */
+    #mobile-sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 12px 14px;
+      background: linear-gradient(180deg, rgba(11, 11, 11, 0.85) 0%, rgba(11, 11, 11, 0.98) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(200, 167, 93, 0.25);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    }
+    #mobile-sticky-cta.show { transform: translateY(0); }
+    #mobile-sticky-cta.hide { transform: translateY(100%) !important; }
+    @media (min-width: 768px) {
+      #mobile-sticky-cta { display: none; }
+    }
+
+    /* Gold thread section divider */
+    .gold-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(200, 167, 93, 0.4) 50%, transparent 100%);
+      width: 100%;
+      position: relative;
+    }
+    .gold-divider::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #C8A75D;
+      box-shadow: 0 0 10px rgba(200, 167, 93, 0.8);
+    }
+
+    /* Live counter dot */
+    .live-counter-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+      animation: live-pulse 1.8s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes live-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+    }
+
+    /* Refined headline emphasis */
+    .gold-text-strong {
+      background: linear-gradient(135deg, #DFC07A 0%, #F4D894 30%, #C8A75D 60%, #DFC07A 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 6s ease infinite;
+      filter: drop-shadow(0 2px 24px rgba(200, 167, 93, 0.25));
+    }
+
+    /* Background grid */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(200, 167, 93, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 167, 93, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    @media (max-width: 768px) {
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(200, 167, 93, 0.15); }
+      .trust-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Progress Bar -->
+  <div id="progress-bar" style="width:0%"></div>
+
+  <!-- Urgency / Scarcity Bar -->
+  <div class="urgency-bar">
+    <span class="live-dot"></span>
+    <strong>Limited slots this week</strong> &mdash; we're closing on <strong>4 properties</strong> right now. Get your offer before the queue fills.
+  </div>
+
+  <!-- ============================================================
+       STICKY NAVIGATION
+  ============================================================ -->
+  <nav id="sticky-nav" class="sticky top-0 left-0 right-0 z-50 bg-black bg-opacity-90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-sm flex items-center justify-center" style="background: linear-gradient(135deg, #C8A75D, #F0D080);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0B0B0B"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/></svg>
+          </div>
+          <span class="font-bebas text-xl tracking-widest text-white">Fraction <span class="gold-text">Home</span> Solutions</span>
+        </div>
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#how-it-works" class="text-sm text-gray-400 hover:text-gold transition-colors">How It Works</a>
+          <a href="#situations" class="text-sm text-gray-400 hover:text-gold transition-colors">Situations</a>
+          <a href="#why-us" class="text-sm text-gray-400 hover:text-gold transition-colors">Why Us</a>
+          <a href="#get-offer" class="nav-cta">Get Cash Offer</a>
+        </div>
+        <!-- Mobile hamburger -->
+        <button id="hamburger" class="md:hidden p-2 text-gray-400 hover:text-gold" aria-label="Menu">
+          <svg id="ham-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg id="close-icon" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu">
+      <div class="px-6 py-4 flex flex-col gap-4">
+        <a href="#how-it-works" class="text-gray-300 hover:text-gold text-sm transition-colors mobile-link">How It Works</a>
+        <a href="#situations" class="text-gray-300 hover:text-gold text-sm transition-colors mobile-link">Situations</a>
+        <a href="#why-us" class="text-gray-300 hover:text-gold text-sm transition-colors mobile-link">Why Us</a>
+        <a href="#get-offer" class="nav-cta text-center mobile-link">Get Cash Offer</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section class="relative min-h-screen flex items-center grid-bg overflow-hidden" style="padding-top:8px;">
+    <!-- Background radial glow -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div style="position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(200,167,93,0.08) 0%,transparent 70%);border-radius:50%;"></div>
+      <div style="position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(200,167,93,0.05) 0%,transparent 70%);border-radius:50%;"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left: Copy -->
+        <div>
+          <div class="hero-tag inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase" style="background:rgba(200,167,93,0.1);border:1px solid rgba(200,167,93,0.3);color:#C8A75D;">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold inline-block" style="box-shadow:0 0 6px #C8A75D;"></span>
+            Trusted Local Cash Buyers &middot; 500+ Closings
+          </div>
+
+          <h1 class="hero-headline font-bebas leading-none tracking-wide mb-6" style="font-size:clamp(54px,8.5vw,96px);">
+            SELL YOUR<br/>
+            <span class="gold-text-strong">HOUSE IN 7 DAYS</span><br/>
+            FOR CASH
+          </h1>
+
+          <p class="hero-sub text-gray-200 text-lg sm:text-xl leading-relaxed mb-8 max-w-lg">
+            Skip the agents. Skip the showings. Skip the months of waiting. <strong class="text-white">We close in as little as 7 days</strong> &mdash; and you walk away with a check.
+          </p>
+
+          <!-- Quick stats -->
+          <div class="hero-stats flex flex-wrap gap-6 mb-10">
+            <div>
+              <div class="font-bebas text-4xl gold-text-strong stat-count" data-target="500" data-suffix="+">0+</div>
+              <div class="text-xs text-gray-500 uppercase tracking-wider mt-0.5">Homes Purchased</div>
+            </div>
+            <div style="width:1px;background:rgba(200,167,93,0.2);"></div>
+            <div>
+              <div class="font-bebas text-4xl gold-text-strong">7&ndash;14</div>
+              <div class="text-xs text-gray-500 uppercase tracking-wider mt-0.5">Day Closings</div>
+            </div>
+            <div style="width:1px;background:rgba(200,167,93,0.2);"></div>
+            <div>
+              <div class="font-bebas text-4xl gold-text-strong">$0</div>
+              <div class="text-xs text-gray-500 uppercase tracking-wider mt-0.5">Fees or Commissions</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Lead Form -->
+        <div class="hero-form">
+          <div class="form-glow rounded-lg p-7 sm:p-8" style="background:rgba(15,15,15,0.96);">
+            <span class="form-corner tl"></span>
+            <span class="form-corner tr"></span>
+            <span class="form-corner bl"></span>
+            <span class="form-corner br"></span>
+            <div id="form-container">
+              <div class="mb-6">
+                <div class="inline-flex items-center gap-2 mb-3 text-[10.5px] font-bold tracking-widest uppercase" style="color:#DFC07A;">
+                  <span class="live-counter-dot"></span>
+                  <span>Free Offer &middot; Reply in Under 24 Hours</span>
+                </div>
+                <h2 class="font-bebas text-4xl tracking-wide mb-2 leading-none">GET YOUR<br/><span class="gold-text-strong">CASH OFFER NOW</span></h2>
+                <p class="text-gray-400 text-sm">Takes 60 seconds. No obligation. No spam.</p>
+              </div>
+
+              <form id="lead-form" novalidate>
+                <div class="space-y-4 mb-6">
+                  <div>
+                    <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Your Name *</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" autocomplete="name" />
+                    <div class="error-msg" id="name-error">Please enter your name.</div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Property Address *</label>
+                    <input type="text" id="address" name="address" class="form-input" placeholder="123 Main St, City, State" autocomplete="street-address" />
+                    <div class="error-msg" id="address-error">Please enter the property address.</div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 000-0000" autocomplete="tel" />
+                    <div class="error-msg" id="phone-error">Please enter a valid phone number.</div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Situation (Optional)</label>
+                    <select id="situation" name="situation" class="form-input" style="cursor:pointer;">
+                      <option value="" style="background:#1A1A1A;">Select your situation...</option>
+                      <option value="foreclosure" style="background:#1A1A1A;">Facing Foreclosure</option>
+                      <option value="inherited" style="background:#1A1A1A;">Inherited Property</option>
+                      <option value="behind" style="background:#1A1A1A;">Behind on Payments</option>
+                      <option value="vacant" style="background:#1A1A1A;">Vacant / Unwanted Home</option>
+                      <option value="repairs" style="background:#1A1A1A;">Can't Afford Repairs</option>
+                      <option value="divorce" style="background:#1A1A1A;">Divorce / Life Change</option>
+                      <option value="other" style="background:#1A1A1A;">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="cta-btn pulse">
+                  GET MY CASH OFFER
+                  <span class="cta-sub">Free &middot; 24-hour response &middot; No obligation</span>
+                </button>
+
+                <p class="text-center text-xs text-gray-500 mt-4 leading-relaxed flex items-center justify-center gap-2">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  Your info is encrypted and never shared.
+                </p>
+              </form>
+            </div>
+
+            <!-- Success state -->
+            <div id="form-success">
+              <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background:rgba(200,167,93,0.15);border:2px solid #C8A75D;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 class="font-bebas text-3xl gold-text mb-2">OFFER REQUEST RECEIVED!</h3>
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">We'll review your property details and reach out within <strong class="text-white">24 hours</strong> with your cash offer. Check your phone for a call from our team.</p>
+              <div class="text-xs text-gray-500">Questions? Call us directly at <span class="text-gold">(555) 000-0000</span></div>
+            </div>
+          </div>
+
+          <!-- Social proof under form -->
+          <div class="flex items-center justify-center gap-2.5 mt-5">
+            <div class="flex -space-x-2">
+              <div class="w-7 h-7 rounded-full border-2 border-charcoal flex items-center justify-center text-xs font-bold" style="background:#2a2a2a;color:#C8A75D;">J</div>
+              <div class="w-7 h-7 rounded-full border-2 border-charcoal flex items-center justify-center text-xs font-bold" style="background:#2a2a2a;color:#C8A75D;">M</div>
+              <div class="w-7 h-7 rounded-full border-2 border-charcoal flex items-center justify-center text-xs font-bold" style="background:#2a2a2a;color:#C8A75D;">R</div>
+            </div>
+            <p class="text-xs text-gray-400 flex items-center gap-2"><span class="live-counter-dot"></span><span class="text-white font-semibold" id="live-counter">12</span> homeowners requested an offer this week</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600 text-xs uppercase tracking-widest" style="animation:fadeIn 1s ease forwards 1.5s;opacity:0;">
+      <span>Scroll</span>
+      <div class="w-px h-8" style="background:linear-gradient(to bottom,rgba(200,167,93,0.6),transparent);"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TRUST BAR
+  ============================================================ -->
+  <section class="py-8 relative z-10" style="background:#111111;border-top:1px solid rgba(200,167,93,0.15);border-bottom:1px solid rgba(200,167,93,0.15);">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 reveal">
+        <div class="trust-item flex flex-col sm:flex-row items-center gap-3 px-6 py-4 text-center sm:text-left">
+          <div class="w-10 h-10 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(200,167,93,0.1);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="font-bebas text-base tracking-wide text-white">Cash Buyers</div>
+            <div class="text-xs text-gray-500 leading-tight">No bank financing delays</div>
+          </div>
+        </div>
+        <div class="trust-item flex flex-col sm:flex-row items-center gap-3 px-6 py-4 text-center sm:text-left">
+          <div class="w-10 h-10 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(200,167,93,0.1);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <div>
+            <div class="font-bebas text-base tracking-wide text-white">No Commissions</div>
+            <div class="text-xs text-gray-500 leading-tight">Zero agent or broker fees</div>
+          </div>
+        </div>
+        <div class="trust-item flex flex-col sm:flex-row items-center gap-3 px-6 py-4 text-center sm:text-left">
+          <div class="w-10 h-10 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(200,167,93,0.1);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="font-bebas text-base tracking-wide text-white">Your Timeline</div>
+            <div class="text-xs text-gray-500 leading-tight">Close when you're ready</div>
+          </div>
+        </div>
+        <div class="trust-item flex flex-col sm:flex-row items-center gap-3 px-6 py-4 text-center sm:text-left">
+          <div class="w-10 h-10 rounded flex items-center justify-center flex-shrink-0" style="background:rgba(200,167,93,0.1);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="font-bebas text-base tracking-wide text-white">Local Experts</div>
+            <div class="text-xs text-gray-500 leading-tight">We know your market</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW IT WORKS
+  ============================================================ -->
+  <section id="how-it-works" class="py-24 relative overflow-hidden" style="background:linear-gradient(180deg, #0B0B0B 0%, #0E0E0E 100%);">
+    <div class="absolute inset-0 grid-bg opacity-40 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+
+      <div class="text-center mb-16 reveal">
+        <div class="inline-block font-bebas text-sm tracking-widest px-4 py-1.5 mb-4 rounded" style="background:rgba(200,167,93,0.1);color:#C8A75D;border:1px solid rgba(200,167,93,0.2);">SIMPLE PROCESS</div>
+        <h2 class="font-bebas text-5xl sm:text-6xl tracking-wide">HOW IT <span class="gold-text-strong">WORKS</span></h2>
+        <div style="width:60px;height:3px;background:linear-gradient(90deg,#C8A75D,#F0D080);margin:16px auto 0;"></div>
+        <p class="text-gray-300 mt-6 max-w-xl mx-auto text-lg">Three steps. Zero hassle. Cash in your hands within 7 days.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 relative">
+        <!-- Connector line (desktop) -->
+        <div class="hidden md:block absolute top-14 left-1/4 right-1/4 h-px" style="background:linear-gradient(90deg,transparent,rgba(200,167,93,0.3),transparent);"></div>
+
+        <!-- Step 1 -->
+        <div class="step-card rounded-lg p-8 reveal reveal-delay-1">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="font-bebas text-6xl" style="color:rgba(200,167,93,0.15);line-height:1;">01</div>
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,167,93,0.1);border:1px solid rgba(200,167,93,0.2);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+          </div>
+          <h3 class="font-bebas text-2xl tracking-wide mb-3">Submit Your <span class="gold-text">Property Info</span></h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Fill out our quick form above with your property details and situation. Takes less than 60 seconds — no lengthy paperwork.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card rounded-lg p-8 reveal reveal-delay-2" style="border-color:rgba(200,167,93,0.2);">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="font-bebas text-6xl" style="color:rgba(200,167,93,0.15);line-height:1;">02</div>
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,167,93,0.15);border:1px solid rgba(200,167,93,0.4);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+          </div>
+          <h3 class="font-bebas text-2xl tracking-wide mb-3">Receive Your <span class="gold-text">Cash Offer</span></h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Our team reviews your property and presents a fair, no-obligation cash offer within 24 hours. No repairs or clean-up needed.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card rounded-lg p-8 reveal reveal-delay-3">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="font-bebas text-6xl" style="color:rgba(200,167,93,0.15);line-height:1;">03</div>
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(200,167,93,0.1);border:1px solid rgba(200,167,93,0.2);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+          </div>
+          <h3 class="font-bebas text-2xl tracking-wide mb-3">Close <span class="gold-text">Fast & Get Paid</span></h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Accept the offer and pick your closing date. We handle all paperwork and you walk away with cash — as fast as 7 days.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-16 reveal">
+        <a href="#get-offer" class="inline-block cta-btn pulse" style="width:auto;padding:22px 64px;max-width:420px;">
+          START MY CASH OFFER
+          <span class="cta-sub">Takes 60 seconds &middot; Reply in 24 hours</span>
+        </a>
+        <p class="text-xs text-gray-500 mt-4 tracking-wide uppercase">No obligation &middot; No fees &middot; No pressure</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SELLER SITUATIONS
+  ============================================================ -->
+  <section id="situations" class="py-24 relative" style="background:#080808;border-top:1px solid rgba(200,167,93,0.08);border-bottom:1px solid rgba(200,167,93,0.08);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-16 reveal">
+        <div class="inline-block font-bebas text-sm tracking-widest px-4 py-1.5 mb-4 rounded" style="background:rgba(200,167,93,0.1);color:#C8A75D;border:1px solid rgba(200,167,93,0.2);">WE'VE SEEN IT ALL</div>
+        <h2 class="font-bebas text-5xl sm:text-6xl tracking-wide">WE BUY IN <span class="gold-text-strong">ANY SITUATION</span></h2>
+        <div style="width:60px;height:3px;background:linear-gradient(90deg,#C8A75D,#F0D080);margin:16px auto 0;"></div>
+        <p class="text-gray-300 mt-6 max-w-xl mx-auto text-lg">Whatever's going on, we've handled it before. As-is, any condition, any timeline.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Foreclosure -->
+        <div class="situation-card rounded-lg p-6 reveal reveal-delay-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(200,167,93,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><path d="M9 21V12h6v9"/><circle cx="12" cy="7" r="1.5" fill="#C8A75D"/></svg>
+          </div>
+          <h3 class="font-bebas text-xl tracking-wide mb-2 text-white">Facing <span class="gold-text">Foreclosure</span></h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Stop the foreclosure process before it destroys your credit. We can close fast and help you walk away with dignity.</p>
+          <div class="mt-4 pt-4 border-t border-gray-800 flex items-center gap-1.5 text-xs text-gold font-semibold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Can close in 7 days
+          </div>
+        </div>
+
+        <!-- Inherited -->
+        <div class="situation-card rounded-lg p-6 reveal reveal-delay-2">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(200,167,93,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="font-bebas text-xl tracking-wide mb-2 text-white">Inherited <span class="gold-text">Property</span></h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Inherited a property you don't want to manage? We handle probate situations and can make the process pain-free.</p>
+          <div class="mt-4 pt-4 border-t border-gray-800 flex items-center gap-1.5 text-xs text-gold font-semibold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Probate-friendly process
+          </div>
+        </div>
+
+        <!-- Vacant -->
+        <div class="situation-card rounded-lg p-6 reveal reveal-delay-3">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(200,167,93,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><path d="M9 21V12h6v9"/></svg>
+          </div>
+          <h3 class="font-bebas text-xl tracking-wide mb-2 text-white">Vacant <span class="gold-text">Homes</span></h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Vacant properties drain money every month. Stop paying taxes and insurance on a home you don't need.</p>
+          <div class="mt-4 pt-4 border-t border-gray-800 flex items-center gap-1.5 text-xs text-gold font-semibold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            No cleanout required
+          </div>
+        </div>
+
+        <!-- Behind on payments -->
+        <div class="situation-card rounded-lg p-6 reveal reveal-delay-4">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(200,167,93,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="font-bebas text-xl tracking-wide mb-2 text-white">Behind on <span class="gold-text">Payments</span></h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Missed mortgage payments adding up? Sell fast, pay off the debt, and start fresh without destroying your credit.</p>
+          <div class="mt-4 pt-4 border-t border-gray-800 flex items-center gap-1.5 text-xs text-gold font-semibold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Protect your credit
+          </div>
+        </div>
+
+        <!-- Divorce -->
+        <div class="situation-card rounded-lg p-6 reveal reveal-delay-1">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(200,167,93,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="font-bebas text-xl tracking-wide mb-2 text-white">Divorce / <span class="gold-text">Separation</span></h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Need a quick resolution? We work with both parties to close quickly so you can both move forward.</p>
+          <div class="mt-4 pt-4 border-t border-gray-800 flex items-center gap-1.5 text-xs text-gold font-semibold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Fast, discreet process
+          </div>
+        </div>
+
+        <!-- Repairs -->
+        <div class="situation-card rounded-lg p-6 reveal reveal-delay-2">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(200,167,93,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-bebas text-xl tracking-wide mb-2 text-white">Major <span class="gold-text">Repairs Needed</span></h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Roof damage, foundation issues, fire or water damage — we buy homes as-is. You don't fix a thing.</p>
+          <div class="mt-4 pt-4 border-t border-gray-800 flex items-center gap-1.5 text-xs text-gold font-semibold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Sell completely as-is
+          </div>
+        </div>
+
+        <!-- Relocation -->
+        <div class="situation-card rounded-lg p-6 reveal reveal-delay-3">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(200,167,93,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="1.8"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          </div>
+          <h3 class="font-bebas text-xl tracking-wide mb-2 text-white">Job <span class="gold-text">Relocation</span></h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Moving for work and can't wait months on the market? We close on your schedule so you can relocate stress-free.</p>
+          <div class="mt-4 pt-4 border-t border-gray-800 flex items-center gap-1.5 text-xs text-gold font-semibold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Close on your schedule
+          </div>
+        </div>
+
+        <!-- Tired Landlord -->
+        <div class="situation-card rounded-lg p-6 reveal reveal-delay-4">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(200,167,93,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="1.8"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3 class="font-bebas text-xl tracking-wide mb-2 text-white">Tired <span class="gold-text">Landlord</span></h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Done with problem tenants, late rent, and maintenance headaches? Sell your rental property fast for cash.</p>
+          <div class="mt-4 pt-4 border-t border-gray-800 flex items-center gap-1.5 text-xs text-gold font-semibold">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Tenant-occupied OK
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY CHOOSE US
+  ============================================================ -->
+  <section id="why-us" class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 grid-bg opacity-30 pointer-events-none"></div>
+    <!-- Gold orb -->
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" style="width:400px;height:400px;background:radial-gradient(circle,rgba(200,167,93,0.06) 0%,transparent 70%);border-radius:50%;"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <div class="reveal">
+          <div class="inline-block font-bebas text-sm tracking-widest px-4 py-1.5 mb-4 rounded" style="background:rgba(200,167,93,0.1);color:#C8A75D;border:1px solid rgba(200,167,93,0.2);">THE DIFFERENCE</div>
+          <h2 class="font-bebas text-5xl sm:text-6xl tracking-wide mb-4">WHY CHOOSE <span class="gold-text-strong">US</span></h2>
+          <div style="width:60px;height:3px;background:linear-gradient(90deg,#C8A75D,#F0D080);margin-bottom:24px;"></div>
+          <p class="text-gray-300 leading-relaxed mb-10 text-lg">We're not a listing service. We're <strong class="text-white">direct cash buyers</strong> &mdash; no showings, no open houses, no waiting on bank approvals. One transaction. Money in your pocket.</p>
+
+          <div class="space-y-1">
+            <div class="benefit-item">
+              <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(200,167,93,0.15);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-white text-sm">Fast Closings — 7 to 14 Days</div>
+                <div class="text-gray-500 text-xs mt-0.5">No waiting months for a buyer while costs pile up</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(200,167,93,0.15);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-white text-sm">No Repairs or Cleaning Required</div>
+                <div class="text-gray-500 text-xs mt-0.5">We buy in any condition — leave what you don't want</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(200,167,93,0.15);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-white text-sm">No Hidden Fees or Surprise Costs</div>
+                <div class="text-gray-500 text-xs mt-0.5">What we offer is what you receive — no deductions</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(200,167,93,0.15);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-white text-sm">Direct Buyers — No Middlemen</div>
+                <div class="text-gray-500 text-xs mt-0.5">No agents, brokers, or third parties cutting into your profits</div>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(200,167,93,0.15);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-white text-sm">No Obligation — Walk Away Anytime</div>
+                <div class="text-gray-500 text-xs mt-0.5">Our offer is 100% free with zero pressure to accept</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison table -->
+        <div class="reveal reveal-delay-2">
+          <div class="rounded-lg overflow-hidden" style="border:1px solid rgba(200,167,93,0.2);">
+            <div class="grid grid-cols-3 text-center" style="background:#111;">
+              <div class="p-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Method</div>
+              <div class="p-4 border-x border-gray-800" style="background:rgba(200,167,93,0.08);">
+                <div class="font-bebas text-sm tracking-widest gold-text">Fraction Home</div>
+              </div>
+              <div class="p-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Agent Listing</div>
+            </div>
+            <div class="divide-y" style="divide-color:rgba(255,255,255,0.05);">
+              <!-- Row -->
+              <div class="grid grid-cols-3 text-center text-sm">
+                <div class="p-4 text-gray-400 text-xs">Closing Time</div>
+                <div class="p-4 border-x border-gray-800 font-semibold text-gold" style="background:rgba(200,167,93,0.05);">7–14 Days</div>
+                <div class="p-4 text-gray-500 text-xs">60–90+ Days</div>
+              </div>
+              <div class="grid grid-cols-3 text-center text-sm">
+                <div class="p-4 text-gray-400 text-xs">Repairs Needed</div>
+                <div class="p-4 border-x border-gray-800 font-semibold text-gold" style="background:rgba(200,167,93,0.05);">None</div>
+                <div class="p-4 text-gray-500 text-xs">Usually Yes</div>
+              </div>
+              <div class="grid grid-cols-3 text-center text-sm">
+                <div class="p-4 text-gray-400 text-xs">Agent Fees</div>
+                <div class="p-4 border-x border-gray-800 font-semibold text-gold" style="background:rgba(200,167,93,0.05);">$0</div>
+                <div class="p-4 text-gray-500 text-xs">5–6% Commission</div>
+              </div>
+              <div class="grid grid-cols-3 text-center text-sm">
+                <div class="p-4 text-gray-400 text-xs">Showings</div>
+                <div class="p-4 border-x border-gray-800 font-semibold text-gold" style="background:rgba(200,167,93,0.05);">None</div>
+                <div class="p-4 text-gray-500 text-xs">Multiple</div>
+              </div>
+              <div class="grid grid-cols-3 text-center text-sm">
+                <div class="p-4 text-gray-400 text-xs">Offer Certainty</div>
+                <div class="p-4 border-x border-gray-800 font-semibold text-gold" style="background:rgba(200,167,93,0.05);">Guaranteed</div>
+                <div class="p-4 text-gray-500 text-xs">Uncertain</div>
+              </div>
+              <div class="grid grid-cols-3 text-center text-sm">
+                <div class="p-4 text-gray-400 text-xs">Hidden Costs</div>
+                <div class="p-4 border-x border-gray-800 font-semibold text-gold" style="background:rgba(200,167,93,0.05);">None</div>
+                <div class="p-4 text-gray-500 text-xs">Inspections, Staging</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section class="py-20" style="background:#111111;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 reveal">
+        <h2 class="font-bebas text-4xl sm:text-5xl tracking-wide">WHAT <span class="gold-text-strong">SELLERS SAY</span></h2>
+        <div style="width:60px;height:3px;background:linear-gradient(90deg,#C8A75D,#F0D080);margin:14px auto 0;"></div>
+        <div class="flex items-center justify-center gap-2 mt-5 text-sm text-gray-400">
+          <div class="flex gap-0.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <span><strong class="text-white">4.9/5</strong> from 200+ verified sellers</span>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-lg p-6 reveal reveal-delay-1" style="background:#1A1A1A;border:1px solid rgba(255,255,255,0.06);">
+          <div class="flex gap-1 mb-4">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">"I was facing foreclosure and didn't know what to do. Fraction Home Solutions called me back within an hour, gave me a fair offer, and we closed in 10 days. They literally saved my financial life."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center font-bebas text-base" style="background:rgba(200,167,93,0.2);color:#C8A75D;">M</div>
+            <div>
+              <div class="text-white text-sm font-semibold">Marcus T.</div>
+              <div class="text-gray-600 text-xs">Atlanta, GA</div>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-lg p-6 reveal reveal-delay-2" style="background:#1A1A1A;border:1px solid rgba(200,167,93,0.15);">
+          <div class="flex gap-1 mb-4">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">"Inherited my mother's house after she passed. It needed so much work I didn't know where to start. These guys bought it as-is, handled all the paperwork, and were incredibly respectful throughout."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center font-bebas text-base" style="background:rgba(200,167,93,0.2);color:#C8A75D;">D</div>
+            <div>
+              <div class="text-white text-sm font-semibold">Diane R.</div>
+              <div class="text-gray-600 text-xs">Birmingham, AL</div>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-lg p-6 reveal reveal-delay-3" style="background:#1A1A1A;border:1px solid rgba(255,255,255,0.06);">
+          <div class="flex gap-1 mb-4">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#C8A75D"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">"I was skeptical at first but they were completely transparent. Got my offer the next morning, no pressure to sign, and closed in 11 days. No fees, no surprises. Exactly what they promised."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center font-bebas text-base" style="background:rgba(200,167,93,0.2);color:#C8A75D;">K</div>
+            <div>
+              <div class="text-white text-sm font-semibold">Kevin L.</div>
+              <div class="text-gray-600 text-xs">Nashville, TN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL CTA SECTION
+  ============================================================ -->
+  <section id="get-offer" class="py-24 relative overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0" style="background:linear-gradient(135deg,#0B0B0B 0%,#1a1400 50%,#0B0B0B 100%);"></div>
+    <div class="absolute inset-0 grid-bg opacity-60 pointer-events-none"></div>
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at center,rgba(200,167,93,0.1) 0%,transparent 60%);"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 font-bebas text-sm tracking-widest px-4 py-1.5 mb-6 rounded" style="background:rgba(200,167,93,0.1);color:#DFC07A;border:1px solid rgba(200,167,93,0.3);">
+          <span class="live-counter-dot"></span>
+          <span>Only Taking 4 More Properties This Week</span>
+        </div>
+        <h2 class="font-bebas text-5xl sm:text-7xl tracking-wide leading-none mb-6">
+          GET YOUR <span class="gold-text-strong">CASH OFFER</span><br/>BEFORE IT'S GONE
+        </h2>
+        <p class="text-gray-200 text-lg sm:text-xl mb-3 max-w-xl mx-auto leading-relaxed">Stop bleeding money on a property you don't want. <strong class="text-white">One form. One call. One check.</strong></p>
+        <p class="text-sm mb-10 inline-flex items-center gap-2" style="color:#DFC07A;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Average response: under 2 hours
+        </p>
+
+        <!-- Bottom form -->
+        <div class="form-glow rounded-lg p-7 sm:p-9 text-left" style="background:rgba(15,15,15,0.98);">
+          <span class="form-corner tl"></span>
+          <span class="form-corner tr"></span>
+          <span class="form-corner bl"></span>
+          <span class="form-corner br"></span>
+          <div id="bottom-form-container">
+            <form id="bottom-lead-form" novalidate>
+              <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Your Name *</label>
+                  <input type="text" id="b-name" name="name" class="form-input" placeholder="John Smith" />
+                  <div class="error-msg" id="b-name-error">Please enter your name.</div>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Phone Number *</label>
+                  <input type="tel" id="b-phone" name="phone" class="form-input" placeholder="(555) 000-0000" />
+                  <div class="error-msg" id="b-phone-error">Please enter a valid phone number.</div>
+                </div>
+              </div>
+              <div class="mb-5">
+                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Property Address *</label>
+                <input type="text" id="b-address" name="address" class="form-input" placeholder="123 Main St, City, State" />
+                <div class="error-msg" id="b-address-error">Please enter the property address.</div>
+              </div>
+              <button type="submit" class="cta-btn pulse" style="font-size:24px;padding:24px;letter-spacing:3px;">
+                SEND ME MY CASH OFFER
+                <span class="cta-sub">Free &middot; No obligation &middot; Reply in 2 hours</span>
+              </button>
+            </form>
+          </div>
+          <div id="bottom-form-success" style="display:none;" class="text-center py-10">
+            <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background:rgba(200,167,93,0.15);border:2px solid #C8A75D;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-bebas text-3xl gold-text-strong mb-2">YOU'RE ON THE LIST!</h3>
+            <p class="text-gray-300 text-sm">We'll reach out within 2 hours with your personalized cash offer. Get ready to close fast.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-8 text-sm text-gray-400">
+          <div class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 100% Secure &amp; Encrypted</div>
+          <div class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Reply in Under 2 Hours</div>
+          <div class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/><circle cx="12" cy="12" r="10"/></svg> Zero Obligation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STICKY MOBILE CTA
+  ============================================================ -->
+  <div id="mobile-sticky-cta">
+    <a href="#get-offer" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;background:linear-gradient(135deg,#C8A75D 0%,#F0D080 50%,#C8A75D 100%);background-size:200% 200%;border-radius:6px;color:#0B0B0B;text-decoration:none;animation:gradient-shift 4s ease infinite;box-shadow:0 6px 20px rgba(200,167,93,0.4);">
+      <div style="text-align:left;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1.5px;line-height:1;">Get My Cash Offer</div>
+        <div style="font-size:10.5px;font-weight:600;opacity:0.7;letter-spacing:0.5px;margin-top:2px;text-transform:uppercase;">Free &middot; No obligation &middot; 24hr reply</div>
+      </div>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer style="background:#080808;border-top:1px solid rgba(200,167,93,0.1);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <div class="grid md:grid-cols-3 gap-10 mb-10">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-sm flex items-center justify-center" style="background:linear-gradient(135deg,#C8A75D,#F0D080);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0B0B0B"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/></svg>
+            </div>
+            <span class="font-bebas text-xl tracking-widest">Fraction <span class="gold-text">Home</span> Solutions</span>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed">We help homeowners sell fast, for cash, in any condition. Serving motivated sellers across the region.</p>
+        </div>
+        <!-- Quick links -->
+        <div>
+          <h4 class="font-bebas tracking-widest text-sm text-gray-400 mb-4 uppercase">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li><a href="#how-it-works" class="hover:text-gold transition-colors">How It Works</a></li>
+            <li><a href="#situations" class="hover:text-gold transition-colors">Seller Situations</a></li>
+            <li><a href="#why-us" class="hover:text-gold transition-colors">Why Choose Us</a></li>
+            <li><a href="#get-offer" class="hover:text-gold transition-colors">Get Cash Offer</a></li>
+          </ul>
+        </div>
+        <!-- Contact -->
+        <div>
+          <h4 class="font-bebas tracking-widest text-sm text-gray-400 mb-4 uppercase">Contact Us</h4>
+          <div class="space-y-3 text-sm text-gray-500">
+            <div class="flex items-center gap-3">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.55 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>(555) 000-0000</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A75D" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@fractionhomesolutions.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;" class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-gray-700 text-center sm:text-left leading-relaxed max-w-xl">
+          <strong class="text-gray-600">Disclaimer:</strong> We are real estate investors, not licensed real estate agents. We are not affiliated with any government agency. The offers we make are based on our investment criteria and may be below market value.
+        </p>
+        <p class="text-xs text-gray-700 flex-shrink-0">© 2025 Fraction Home Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ── Progress bar ──────────────────────────────────────────────
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const progress = scrollHeight ? (scrollTop / scrollHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    });
+
+    // ── Sticky nav shadow on scroll ───────────────────────────────
+    const nav = document.getElementById('sticky-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.5)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
+
+    // ── Mobile menu ───────────────────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamIcon = document.getElementById('ham-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      hamIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+    // ── Scroll reveal ─────────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Phone formatting ──────────────────────────────────────────
+    function formatPhone(input) {
+      input.addEventListener('input', function () {
+        let val = this.value.replace(/\D/g, '');
+        if (val.length >= 6) {
+          val = '(' + val.substring(0,3) + ') ' + val.substring(3,6) + '-' + val.substring(6,10);
+        } else if (val.length >= 3) {
+          val = '(' + val.substring(0,3) + ') ' + val.substring(3);
+        }
+        this.value = val;
+      });
+    }
+    formatPhone(document.getElementById('phone'));
+    formatPhone(document.getElementById('b-phone'));
+
+    // ── Form validation & submission ──────────────────────────────
+    function validateField(id, errorId, validator) {
+      const input = document.getElementById(id);
+      const error = document.getElementById(errorId);
+      const val = input.value.trim();
+      const valid = validator(val);
+      input.classList.toggle('error', !valid);
+      error.classList.toggle('show', !valid);
+      return valid;
+    }
+
+    function isPhone(val) {
+      return val.replace(/\D/g, '').length >= 10;
+    }
+
+    function submitForm(formId, containerId, successId) {
+      const form = document.getElementById(formId);
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const prefix = formId === 'bottom-lead-form' ? 'b-' : '';
+        const nameValid = validateField(prefix + 'name', prefix + 'name-error', v => v.length >= 2);
+        const addrValid = validateField(prefix + 'address', prefix + 'address-error', v => v.length >= 5);
+        const phoneValid = validateField(prefix + 'phone', prefix + 'phone-error', isPhone);
+
+        if (!nameValid || !addrValid || !phoneValid) return;
+
+        // Simulate submission (replace with real endpoint / webhook)
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+
+        setTimeout(() => {
+          document.getElementById(containerId).style.display = 'none';
+          document.getElementById(successId).style.display = 'block';
+        }, 1200);
+      });
+
+      // Live validation on blur
+      ['name','address','phone'].forEach(field => {
+        const prefix = formId === 'bottom-lead-form' ? 'b-' : '';
+        const input = document.getElementById(prefix + field);
+        if (input) {
+          input.addEventListener('blur', function() {
+            if (this.value.trim()) {
+              if (field === 'phone') {
+                validateField(prefix + field, prefix + field + '-error', isPhone);
+              } else {
+                validateField(prefix + field, prefix + field + '-error', v => v.length >= 2);
+              }
+            }
+          });
+        }
+      });
+    }
+
+    submitForm('lead-form', 'form-container', 'form-success');
+    submitForm('bottom-lead-form', 'bottom-form-container', 'bottom-form-success');
+
+    // ── Smooth scroll for all anchor links ────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80; // sticky nav (~64px) + a little breathing room
+          const targetPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ── Count-up animation for stats ──────────────────────────────
+    function animateCount(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1600;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const value = Math.floor(eased * target);
+        el.textContent = value + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = target + suffix;
+      }
+      requestAnimationFrame(tick);
+    }
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-count').forEach(el => statObserver.observe(el));
+
+    // ── Sticky mobile CTA: show after hero, hide near forms ───────
+    const stickyCta = document.getElementById('mobile-sticky-cta');
+    const heroBottom = document.querySelector('section').offsetHeight;
+    const finalCta = document.getElementById('get-offer');
+    const heroForm = document.getElementById('form-container');
+
+    function updateStickyCta() {
+      if (!stickyCta) return;
+      const scrollY = window.scrollY;
+      const finalCtaTop = finalCta ? finalCta.getBoundingClientRect().top + scrollY - 200 : Infinity;
+      const finalCtaBottom = finalCta ? finalCta.getBoundingClientRect().bottom + scrollY : 0;
+      const heroFormVisible = heroForm && heroForm.getBoundingClientRect().bottom > 100;
+
+      // Show after hero scroll, hide when hero form still visible or final CTA in view
+      if (scrollY > heroBottom * 0.6 && !heroFormVisible && (scrollY < finalCtaTop || scrollY > finalCtaBottom)) {
+        stickyCta.classList.add('show');
+      } else {
+        stickyCta.classList.remove('show');
+      }
+    }
+    window.addEventListener('scroll', updateStickyCta, { passive: true });
+    window.addEventListener('resize', updateStickyCta);
+    updateStickyCta();
+
+    // ── Live counter — gentle, occasional increment ───────────────
+    const liveCounter = document.getElementById('live-counter');
+    if (liveCounter) {
+      let count = 12;
+      setInterval(() => {
+        // ~30% chance every interval to bump the number — feels organic, not fake
+        if (Math.random() < 0.3 && count < 24) {
+          count++;
+          liveCounter.textContent = count;
+          liveCounter.style.transition = 'color 0.3s ease';
+          liveCounter.style.color = '#F0D080';
+          setTimeout(() => { liveCounter.style.color = ''; }, 600);
+        }
+      }, 14000);
+    }
+  </script>
+
+</body>
+</html>
